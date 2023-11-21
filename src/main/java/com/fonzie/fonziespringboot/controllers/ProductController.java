@@ -30,7 +30,7 @@ public class ProductController {
         if(!productsList.isEmpty()) {
             for(ProductModel product : productsList) {
                 UUID id = product.getIdProduct();
-                product.add(linkTo(methodOn(ProductController.class).getOneProduct(id)).withSelfRel());
+                product.add(linkTo(methodOn(ProductController.class).getOneProduct(product.getIdProduct())).withSelfRel());
             }
         }
         return ResponseEntity.status(HttpStatus.OK).body(productsList);
